@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Josefin+Sans:wght@300;400;500;600;700&family=Tangerine:wght@400;700&display=swap');
 
+html {
+  scroll-padding-top: 100px;
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -472,7 +477,7 @@ button {
 }
 
 .main-header.fixed-header .main-menu .navigation>li>ul {
-  top: 134%;
+  top: 100%;
 }
 
 .main-header.fixed-header .header-upper .links-box {
@@ -5388,4 +5393,87 @@ html .ui-button.ui-state-disabled:active {
   content: "◆";
   color: #c8a96a;
   font-size: 10px;
+}
+/*--------------------------------------------------------------------
+    Gallery Section
+---------------------------------------------------------------------*/
+.gallery-section {
+  padding-bottom: 80px;
+}
+
+.gallery-item-wrap {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.gallery-img {
+  position: relative;
+  transition: all 500ms ease;
+  overflow: hidden;
+  border: 1px solid transparent;
+}
+
+.gallery-img img {
+  width: 100%;
+  height: auto;
+  transition: all 500ms ease;
+  display: block;
+}
+
+.gallery-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(17, 20, 24, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 500ms ease;
+  z-index: 2;
+}
+
+.gallery-hover i {
+  color: #C6A87D;
+  font-size: 30px;
+  transform: scale(0.5);
+  transition: all 500ms ease;
+}
+
+.gallery-item-wrap:hover .gallery-img {
+  border-color: #C6A87D;
+}
+
+.gallery-item-wrap:hover .gallery-img img {
+  transform: scale(1.1);
+}
+
+.gallery-item-wrap:hover .gallery-hover {
+  opacity: 1;
+}
+
+.gallery-item-wrap:hover .gallery-hover i {
+  transform: scale(1);
+}
+
+.gallery-img::after {
+  content: ' ';
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  position: absolute;
+  transition: all 0.5s;
+  top: 5px;
+  left: 5px;
+  border: 1px solid #C6A87D;
+  opacity: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.gallery-item-wrap:hover .gallery-img::after {
+  opacity: 1;
 }
